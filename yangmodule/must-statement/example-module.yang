@@ -11,8 +11,8 @@ module example-module {
      reference "456";
    }
 
-   container c-a {
-        list l-a {
+   container container1 {
+        list list-a {
             key name;
             leaf name {
                 type string;
@@ -23,8 +23,8 @@ module example-module {
         }
    }
 
-   container c-b {
-        list l-b {
+   container container2 {
+        list list-b {
             key name;
             leaf name {
                 type string;
@@ -33,11 +33,11 @@ module example-module {
                 type string;
             }
 
-            leaf container-a-name {
+            leaf list-a-name {
                 type string;
-                must "/mod:c-a/mod:l-a[mod:name=.]/mod:identifier=../identifier"{
+                must "/mod:container1/mod:list-a[mod:name=.]/mod:identifier=../identifier"{
                 description
-                "The 'identifier' of the 'example-module:c-a' must be the same as the 'identifier'
+                "The 'identifier' in list-a must be the same as the 'identifier'
                 configured here.";
                 }
             }

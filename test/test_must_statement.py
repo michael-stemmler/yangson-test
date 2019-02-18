@@ -13,20 +13,20 @@ def data_model():
 
 def test_must_statement(data_model):
     data = {
-        'example-module:c-a': {
-            'l-a': [
+        'example-module:container1': {
+            'list-a': [
                 {
                     'name': 'A',
                     'identifier': '123:A'
                 }
             ]
         },
-        'example-module:c-b': {
-            'l-b': [
+        'example-module:container2': {
+            'list-b': [
                 {
                     'name': 'B1',
                     'identifier': '123:A',
-                    'container-a-name': 'A'
+                    'list-a-name': 'A'
                 }
             ]
         }
