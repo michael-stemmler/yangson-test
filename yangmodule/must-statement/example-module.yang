@@ -1,0 +1,48 @@
+module example-module {
+
+   namespace "http://example.com/ns/example-module";
+   prefix "mod";
+
+   organization "Example.";
+   contact "support at example.com";
+   description "";
+   revision "2019-02-18" {
+     description "Initial version.";
+     reference "456";
+   }
+
+   container c-a {
+        list l-a {
+            key name;
+            leaf name {
+                type string;
+            }
+            leaf identifier {
+                type string;
+            }
+        }
+   }
+
+   container c-b {
+        list l-b {
+            key name;
+            leaf name {
+                type string;
+            }
+            leaf identifier {
+                type string;
+            }
+
+            leaf container-a-name {
+                type string;
+                must "/mod:c-a/mod:l-a[mod:name=.]/mod:identifier=../identifier"{
+                description
+                "The 'identifier' of the 'example-module:c-a' must be the same as the 'identifier'
+                configured here.";
+                }
+            }
+        }
+   }
+}
+
+
